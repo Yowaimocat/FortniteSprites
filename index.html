@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0B0E17" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <title>YOWAIMOCAT Fortnite Sprite Trading</title>
   <meta name="description" content="YOWAIMOCAT Fortnite Sprite Trading: track your Fortnite Sprites, share missing sprites, and create clean trading screenshots for the cat squad." />
   <meta name="keywords" content="fortnite sprite, fortnite sprites, fortnite sprite checklist, fortnite sprite tracker, yowaimocat, yowaimocat sprites, missing fortnite sprites, fortnite sprite trading, fortnite sprite index" />
@@ -35,7 +38,7 @@
     }
 
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; background: #0B0E17; }
 
     body {
       margin: 0;
@@ -583,14 +586,34 @@
       letter-spacing: 0;
     }
 
+    .ss-control-wrap {
+      display: grid;
+      gap: 7px;
+      min-width: min(100%, 360px);
+    }
+
+    .ss-type-label {
+      margin: 0;
+      color: #B66CFF;
+      font-size: .66rem;
+      font-weight: 900;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      text-shadow: 0 0 16px rgba(145,70,255,.44);
+    }
+
     .ss-controls {
       display: flex;
       align-items: center;
       gap: 8px;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
+      width: 100%;
     }
 
     .ss-chip {
+      flex: 1 1 0;
+      min-width: 0;
+      padding-inline: 10px;
       border-color: rgba(145,70,255,.55);
       background: rgba(145,70,255,.12);
     }
@@ -764,6 +787,14 @@
       padding: 9px 6px 8px;
       text-align: center;
       box-shadow: 0 0 18px rgba(255,59,92,.12), inset 0 0 14px rgba(255,255,255,.03);
+      cursor: pointer;
+      transition: transform .14s ease, border-color .14s ease, background .14s ease;
+    }
+
+    .ss-item:active {
+      transform: scale(.96);
+      border-color: rgba(46,255,138,.86);
+      background: linear-gradient(135deg, rgba(46,255,138,.16), rgba(255,255,255,.04));
     }
 
     .ss-item img,
@@ -948,8 +979,10 @@
       .bulk-pill .bulk-action { width: auto; flex: 1 1 50%; min-width: 0; padding-inline: 8px; }
       .items { grid-template-columns: 1fr; }
       .ss-builder-head { align-items: stretch; }
-      .ss-controls { width: 100%; }
-      .ss-chip { flex: 1 1 120px; }
+      .ss-control-wrap { width: 100%; }
+      .ss-type-label { text-align: left; }
+      .ss-controls { width: 100%; gap: 6px; }
+      .ss-chip { flex: 1 1 0; min-width: 0; padding-inline: 4px; font-size: .74rem; }
       .ss-card { min-height: 0; flex-basis: 100%; scroll-snap-align: center; }
       .ss-cards { gap: 12px; margin-inline: -1px; padding-bottom: 12px; }
       .ss-modes { justify-content: flex-start; }
@@ -999,12 +1032,15 @@
       <div class="ss-builder-head">
         <div>
           <h2>Create <span>Trading SS</span></h2>
-          <p class="ss-note">Swipe sideways between cards. Max 9 missing Fortnite Sprites per card.</p>
+          <p class="ss-note">Swipe cards sideways. Tap a sprite to remove it. Max 9 per card.</p>
         </div>
-        <div class="ss-controls" aria-label="Screenshot type">
-          <button type="button" class="ss-chip active" data-ss-tag="Index">Index</button>
-          <button type="button" class="ss-chip active" data-ss-tag="Trade">Trade</button>
-          <button type="button" class="ss-chip active" data-ss-tag="Beg">Beg</button>
+        <div class="ss-control-wrap">
+          <p class="ss-type-label">Type of trade</p>
+          <div class="ss-controls" aria-label="Screenshot type">
+            <button type="button" class="ss-chip active" data-ss-tag="Index">Index</button>
+            <button type="button" class="ss-chip active" data-ss-tag="Trade">Trade</button>
+            <button type="button" class="ss-chip active" data-ss-tag="Beg">Beg</button>
+          </div>
         </div>
       </div>
       <div id="ssCards" class="ss-cards" aria-live="polite"></div>
@@ -1210,11 +1246,11 @@
           <div class="ss-modes">${tagHtml}${brandChipHtml}</div>
           <div class="ss-grid">
             ${page.map(item => `
-              <div class="ss-item">
+              <button type="button" class="ss-item" data-id="${item.id}" aria-label="Mark ${escapeHtml(item.name)} as have and remove from screenshot">
                 ${ssImgHtml(item)}
                 <span class="ss-name">${escapeHtml(item.name)}</span>
                 <span class="ss-missing">Missing</span>
-              </div>
+              </button>
             `).join("")}
           </div>
           <div class="ss-footer">
@@ -1338,6 +1374,16 @@
         renderSSCards();
       });
     });
+
+    els.ssCards.addEventListener("click", event => {
+      const itemButton = event.target.closest(".ss-item[data-id]");
+      if (!itemButton) return;
+      owned.add(itemButton.dataset.id);
+      saveLocal();
+      render();
+      toast("Sprite removed from SS");
+    });
+
 
 
     owned = loadInitialOwned();
