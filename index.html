@@ -112,22 +112,33 @@
     }
 
     .hero::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      top: 52%;
-      width: clamp(150px, 26vw, 260px);
-      aspect-ratio: 1;
-      background: var(--mini-cat) center / contain no-repeat;
-      opacity: .16;
-      filter: saturate(2.6) drop-shadow(0 0 42px rgba(0,217,255,.38));
-      transform: translate(-50%, -50%);
-      z-index: 0;
-      pointer-events: none;
+      display: none;
     }
 
     .hero-brand-img {
       display: none;
+    }
+
+    .hero-content::before,
+    .hero-content::after {
+      content: "";
+      position: absolute;
+      top: clamp(-7px, .2vw, 4px);
+      width: clamp(70px, 15vw, 124px);
+      aspect-ratio: 1;
+      background: var(--mini-cat) center / contain no-repeat;
+      opacity: 1;
+      filter: saturate(1.6) drop-shadow(0 0 24px rgba(0,217,255,.62));
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .hero-content::before { left: clamp(0px, 1.2vw, 16px); }
+    .hero-content::after { right: clamp(0px, 1.2vw, 16px); }
+
+    .hero-content h1 {
+      position: relative;
+      z-index: 2;
     }
 
     .hero-content {
@@ -154,31 +165,32 @@
       letter-spacing: .025em;
     }
 
-    .title-main {
-      display: block;
-      color: var(--white);
-      font-size: clamp(1.8rem, 6.6vw, 5.05rem);
-      font-weight: 900;
-      letter-spacing: -.035em;
-      white-space: nowrap;
-      text-shadow:
-        0 0 10px rgba(255,255,255,.24),
-        0 0 30px rgba(0,217,255,.22);
-    }
-
     .title-sub {
       display: block;
-      margin-top: .42em;
+      margin: 0 0 .28em;
       color: var(--accent);
-      font-size: clamp(.72rem, 2.3vw, 1.25rem);
+      font-size: clamp(.62rem, 1.55vw, .98rem);
       font-weight: 900;
       line-height: 1;
-      letter-spacing: .18em;
+      letter-spacing: .22em;
       white-space: nowrap;
       text-shadow:
         0 0 10px rgba(0,217,255,.92),
         0 0 30px rgba(0,217,255,.56),
         0 0 60px rgba(0,217,255,.24);
+    }
+
+    .title-main {
+      display: block;
+      color: var(--accent);
+      font-size: clamp(2.25rem, 7.7vw, 6.15rem);
+      font-weight: 900;
+      letter-spacing: -.045em;
+      white-space: nowrap;
+      text-shadow:
+        0 0 10px rgba(0,217,255,.92),
+        0 0 30px rgba(0,217,255,.60),
+        0 0 68px rgba(0,217,255,.28);
     }
 
     .hero-cta {
@@ -216,6 +228,12 @@
       transform: translateY(-2px);
       border-color: var(--accent);
       box-shadow: 0 0 26px rgba(0,217,255,.25);
+    }
+
+    .button-link.sprite-cta:hover,
+    button.sprite-cta:hover {
+      border-color: rgba(218,110,255,1);
+      box-shadow: 0 0 34px rgba(155,53,255,.52), inset 0 0 18px rgba(255,255,255,.20);
     }
 
     .twitch-icon {
@@ -342,11 +360,11 @@
 
     .button-link.sprite-cta,
     button.sprite-cta {
-      border-color: rgba(181, 94, 255, .95);
+      border-color: rgba(218, 110, 255, 1);
       color: var(--white);
-      background: linear-gradient(135deg, #B66CFF 0%, #9146FF 52%, #5C1FD1 100%);
-      text-shadow: 0 1px 0 rgba(0,0,0,.26);
-      box-shadow: 0 0 30px rgba(145,70,255,.34), inset 0 0 16px rgba(255,255,255,.14);
+      background: linear-gradient(135deg, #D956FF 0%, #9B35FF 42%, #6518F0 100%) !important;
+      text-shadow: 0 1px 0 rgba(0,0,0,.34);
+      box-shadow: 0 0 34px rgba(155,53,255,.44), inset 0 0 18px rgba(255,255,255,.20);
     }
 
     .bulk-pill {
@@ -658,7 +676,7 @@
     }
 
     .ss-builder-head {
-      display: flex;
+      display: none;
       align-items: center;
       justify-content: space-between;
       gap: 14px;
@@ -835,11 +853,34 @@
       white-space: nowrap;
     }
 
+    .ss-card-title {
+      margin: 0;
+      color: var(--white);
+      text-transform: uppercase;
+      font-size: clamp(.86rem, 2.35vw, 1.28rem);
+      line-height: 1;
+      letter-spacing: -.03em;
+      white-space: nowrap;
+      text-shadow: 0 0 18px rgba(255,255,255,.16);
+    }
+
+    .ss-card-title span {
+      color: var(--accent);
+      text-shadow: 0 0 18px rgba(0,217,255,.48);
+    }
+
+    .ss-card-title small {
+      color: var(--white);
+      font-size: .62em;
+      letter-spacing: .04em;
+      text-shadow: 0 0 12px rgba(255,255,255,.13);
+    }
+
     .ss-card-top {
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
-      gap: 12px;
+      gap: 10px;
       margin-bottom: 10px;
     }
 
@@ -861,11 +902,11 @@
     }
 
     .ss-card h3 {
-      margin: 4px 0 12px;
+      margin: 3px 0 12px;
       color: var(--white);
-      font-size: clamp(1.25rem, 4.1vw, 2.05rem);
-      line-height: .92;
-      letter-spacing: -.035em;
+      font-size: clamp(1.08rem, 3.65vw, 1.86rem);
+      line-height: .94;
+      letter-spacing: -.055em;
       white-space: nowrap;
       text-transform: uppercase;
       text-shadow: 0 0 22px rgba(255,255,255,.14);
@@ -879,18 +920,25 @@
     }
 
     .ss-mode-pill {
+      width: auto;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      border: 1px solid rgba(145,70,255,.86);
+      border: 1px solid rgba(0,217,255,.45);
       border-radius: 999px;
       padding: 6px 10px;
-      background: linear-gradient(135deg, rgba(145,70,255,.44), rgba(0,217,255,.10));
+      background: rgba(11,14,23,.58);
       color: var(--white);
       font-size: .67rem;
       font-weight: 900;
       text-transform: uppercase;
-      box-shadow: 0 0 14px rgba(145,70,255,.22);
+      box-shadow: inset 0 0 12px rgba(0,217,255,.06);
+    }
+
+    .ss-mode-pill.active {
+      border-color: rgba(145,70,255,.94);
+      background: linear-gradient(135deg, #B66CFF 0%, #9146FF 55%, #5C1FD1 100%);
+      box-shadow: 0 0 14px rgba(145,70,255,.28), inset 0 0 12px rgba(255,255,255,.14);
     }
 
     .ss-grid {
@@ -1074,26 +1122,25 @@
         top: 56%;
         height: 150px;
       }
-      .hero::after {
-        left: 50%;
-        top: 51%;
-        width: clamp(138px, 35vw, 176px);
-        opacity: .18;
-        transform: translate(-50%, -50%);
+      .hero::after { display: none; }
+      .hero-content::before,
+      .hero-content::after {
+        top: -2px;
+        width: clamp(60px, 18vw, 88px);
       }
       .hero-brand-img {
         display: none;
       }
-      .title-main {
-        font-size: clamp(1.52rem, 6.15vw, 2.35rem);
-        letter-spacing: -.045em;
-        white-space: nowrap;
-      }
       .title-sub {
-        margin-top: .48em;
-        font-size: clamp(.62rem, 2.55vw, .86rem);
+        margin: 0 0 .28em;
+        font-size: clamp(.54rem, 2.5vw, .76rem);
         line-height: 1;
-        letter-spacing: .16em;
+        letter-spacing: .18em;
+      }
+      .title-main {
+        font-size: clamp(2.15rem, 12.2vw, 3.35rem);
+        letter-spacing: -.055em;
+        white-space: nowrap;
       }
       .hero-cta { width: 100%; max-width: 360px; }
       .status-grid { grid-template-columns: 1fr; }
@@ -1124,9 +1171,11 @@
         display: flex;
         flex-direction: column;
       }
-      .ss-card h3 { font-size: clamp(1.02rem, 5.35vw, 1.55rem); letter-spacing: -.045em; }
+      .ss-card-title { font-size: clamp(.68rem, 3.05vw, .98rem); letter-spacing: -.045em; }
+      .ss-card h3 { font-size: clamp(.96rem, 5.0vw, 1.36rem); letter-spacing: -.068em; }
       .ss-cards { gap: 12px; margin-inline: -1px; padding-bottom: 12px; }
       .ss-modes { justify-content: flex-start; }
+      .ss-modes .ss-mode-pill { width: auto; flex: 0 0 auto; padding-inline: 10px; }
       .ss-brand-lock { max-width: 100%; }
       .ss-brand-lock span { white-space: normal; text-align: left; line-height: 1.15; }
       .ss-grid {
@@ -1151,8 +1200,8 @@
     <section class="hero" aria-label="Fortnite Sprite Tracker by YOWAIMOCAT">
       <div class="hero-content">
         <h1>
-          <span class="title-main">FORTNITE SPRITE TRACKER</span>
-          <span class="title-sub">by YOWAIMOCAT</span>
+          <span class="title-sub">FORTNITE SPRITE TRACKER</span>
+          <span class="title-main">YOWAIMOCAT</span>
         </h1>
       </div>
     </section>
@@ -1161,23 +1210,10 @@
 
   <main>
     <section class="action-row" aria-label="Share and sprite actions">
-      <a class="button-link sprite-cta" href="https://www.twitch.tv/yowaimocat" target="_blank" rel="noopener">GET A FREE SPRITE</a>
+      <a class="button-link sprite-cta" href="https://www.twitch.tv/yowaimocat" target="_blank" rel="noopener">GIVING SPRITES FOR FREE (350+)</a>
       <button id="copyShare" type="button" class="primary">SHARE LINK</button>
     </section>
     <section id="ssBuilder" class="ss-builder" aria-label="Create a Fortnite Sprite trading screenshot">
-      <div class="ss-builder-head">
-        <div>
-          <h2>Clear <span>Trading SS</span> <small>(Screenshot)</small></h2>
-        </div>
-        <div class="ss-control-wrap">
-          <p class="ss-type-label">Type of trade</p>
-          <div class="ss-controls" aria-label="Screenshot type">
-            <button type="button" class="ss-chip active" data-ss-tag="Index">Index</button>
-            <button type="button" class="ss-chip active" data-ss-tag="Trade">Trade</button>
-            <button type="button" class="ss-chip active" data-ss-tag="Beg">Beg</button>
-          </div>
-        </div>
-      </div>
       <div id="ssCards" class="ss-cards" aria-live="polite"></div>
     </section>
     <section class="bulk-zone" aria-label="Bulk sprite controls">
@@ -1373,8 +1409,8 @@
     function renderSSCards() {
       if (!els.ssCards) return;
       const missingItems = items.filter(item => !owned.has(item.id));
-      const tags = getSelectedSSTags();
-      const tagHtml = tags.map(tag => `<span class="ss-mode-pill">${escapeHtml(tag)}</span>`).join("");
+      const tradeTypes = ["Index", "Trade", "Beg"];
+      const tagHtml = tradeTypes.map(tag => `<button type="button" class="ss-mode-pill ${ssTags.has(tag) ? "active" : ""}" data-ss-tag="${tag}">${escapeHtml(tag)}</button>`).join("");
       const brandChipHtml = `<span class="ss-brand-lock"><img src="${BRAND_BADGE}" alt=""><span>YOWAIMOCAT - FORTNITE SPRITE TRADING</span></span>`;
 
       if (!missingItems.length) {
@@ -1386,7 +1422,7 @@
       els.ssCards.innerHTML = pages.map((page, index) => `
         <article class="ss-card" aria-label="Missing Fortnite Sprites screenshot card ${index + 1} of ${pages.length}">
           <div class="ss-card-top">
-            <div></div>
+            <h2 class="ss-card-title">Clear <span>Trading SS</span> <small>(Screenshot)</small></h2>
             <div class="ss-page">${index + 1}/${pages.length}</div>
           </div>
           <h3>Missing Fortnite Sprites</h3>
@@ -1524,6 +1560,15 @@
     });
 
     els.ssCards.addEventListener("click", event => {
+      const tagButton = event.target.closest(".ss-mode-pill[data-ss-tag]");
+      if (tagButton) {
+        const tag = tagButton.dataset.ssTag;
+        if (ssTags.has(tag)) ssTags.delete(tag);
+        else ssTags.add(tag);
+        if (ssTags.size === 0) ssTags.add(tag);
+        renderSSCards();
+        return;
+      }
       const itemButton = event.target.closest(".ss-item[data-id]");
       if (!itemButton) return;
       owned.add(itemButton.dataset.id);
