@@ -1104,13 +1104,31 @@
       .ss-type-label { text-align: left; }
       .ss-controls { width: 100%; gap: 6px; }
       .ss-chip { flex: 1 1 0; min-width: 0; padding-inline: 4px; font-size: .74rem; }
-      .ss-card { min-height: 0; flex-basis: 100%; scroll-snap-align: center; }
+      .ss-card {
+        min-height: calc(100dvh - 22px);
+        flex-basis: 100%;
+        scroll-snap-align: center;
+        padding: 20px 18px 20px;
+        display: flex;
+        flex-direction: column;
+      }
       .ss-cards { gap: 12px; margin-inline: -1px; padding-bottom: 12px; }
       .ss-modes { justify-content: flex-start; }
       .ss-brand-lock { max-width: 100%; }
       .ss-brand-lock span { white-space: normal; text-align: left; line-height: 1.15; }
+      .ss-grid {
+        flex: 1;
+        align-content: center;
+        gap: 12px;
+      }
+      .ss-item {
+        min-height: 142px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
       .ss-item img,
-      .ss-fallback { width: 62px; height: 62px; }
+      .ss-fallback { width: 68px; height: 68px; }
       .modal-actions { flex-direction: column; }
     }
   </style>
