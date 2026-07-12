@@ -11,19 +11,19 @@
   <meta name="keywords" content="fortnite sprite, fortnite sprites, fortnite sprite checklist, fortnite sprite tracker, yowaimocat, yowaimocat sprites, missing fortnite sprites, fortnite sprite trading, fortnite sprite index" />
   <meta property="og:title" content="YOWAIMOCAT Fortnite Sprite Trading" />
   <meta property="og:description" content="Track Fortnite Sprites and create clean missing sprite trading screenshots by YOWAIMOCAT." />
-  <meta property="og:url" content="https://yowaimocat.github.io/FortniteSprites/" />
+  <meta property="og:url" content="https://fnspritetracker.com/" />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://yowaimocat.github.io/FortniteSprites/og-image.png" />
-  <meta property="og:image:secure_url" content="https://yowaimocat.github.io/FortniteSprites/og-image.png" />
+  <meta property="og:image" content="https://fnspritetracker.com/og-image.png" />
+  <meta property="og:image:secure_url" content="https://fnspritetracker.com/og-image.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="OnlySprites Fortnite Sprite Trading by YOWAIMOCAT" />
-  <link rel="image_src" href="https://yowaimocat.github.io/FortniteSprites/og-image.png" />
+  <link rel="image_src" href="https://fnspritetracker.com/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="YOWAIMOCAT Fortnite Sprite Trading" />
   <meta name="twitter:description" content="Fortnite Sprite checklist and clean missing sprite trading screenshots by YOWAIMOCAT." />
-  <meta name="twitter:image" content="https://yowaimocat.github.io/FortniteSprites/og-image.png" />
+  <meta name="twitter:image" content="https://fnspritetracker.com/og-image.png" />
   <meta name="twitter:image:alt" content="OnlySprites Fortnite Sprite Trading by YOWAIMOCAT" />
   <style>
 
@@ -647,13 +647,11 @@
 
     .ss-builder {
       margin: 16px 0 18px;
-      border: 1px solid rgba(145,70,255,.58);
-      border-radius: var(--radius);
-      background:
-        radial-gradient(circle at 10% 0%, rgba(145,70,255,.26), transparent 18rem),
-        linear-gradient(135deg, rgba(13,27,61,.72), rgba(11,14,23,.86));
-      box-shadow: 0 18px 62px rgba(0,0,0,.26), inset 0 0 22px rgba(145,70,255,.08);
-      padding: 16px;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
     }
 
     .ss-builder-head {
@@ -662,7 +660,14 @@
       justify-content: space-between;
       gap: 14px;
       flex-wrap: wrap;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
+      border: 1px solid rgba(145,70,255,.46);
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(145,70,255,.22), transparent 16rem),
+        linear-gradient(135deg, rgba(13,27,61,.58), rgba(11,14,23,.78));
+      box-shadow: 0 12px 42px rgba(0,0,0,.20), inset 0 0 18px rgba(145,70,255,.06);
+      padding: 14px;
     }
 
     .ss-builder h2 {
@@ -1273,7 +1278,7 @@
       return allIds.filter(id => !owned.has(id));
     }
 
-    const OFFICIAL_URL = "https://yowaimocat.github.io/FortniteSprites/";
+    const OFFICIAL_URL = "https://fnspritetracker.com/";
 
     function makeShareUrl() {
       return OFFICIAL_URL;
@@ -1368,7 +1373,6 @@
           </div>
           <div class="ss-footer">
             <span><strong>YOWAIMOCAT</strong> • Fortnite Sprite Trading • twitch.tv/yowaimocat</span>
-            <span>#FortniteSprites #YOWAIMOCAT #FortniteSprite</span>
           </div>
         </article>
       `).join("");
