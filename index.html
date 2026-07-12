@@ -1157,7 +1157,7 @@
     <section class="status-grid stats-bottom" aria-label="Stats">
       <div class="stat"><strong id="ownedCount">0</strong><span>Have</span></div>
       <div class="stat"><strong id="missingCount">61</strong><span>Missing</span></div>
-      <div class="stat"><strong id="totalCount">61</strong><span>Total sprites</span></div>
+      <div class="stat"><strong id="totalCount">66</strong><span>Total sprites</span></div>
     </section>
   </main>
 
@@ -1182,18 +1182,18 @@
       { name: "Zero Point", key: "Zero Point", base: "T_Icon_BR_Creature_Sprite_ZeroPoint_ui_L.webp", pattern: "T_Icon_BR_Creature_Sprite_ZeroPoint_{v}_ui_L.webp" },
       { name: "Boss", key: "Boss", base: "T_Icon_BR_Creature_Sprite_Boss_ui_L.webp", pattern: "T_Icon_BR_Creature_Sprite_Boss_{v}_ui_L.webp" },
       { name: "Aura", key: "Aura", base: "T_Icon_BR_Creature_Sprite_Drifter_ui_L.webp", pattern: "T_Icon_BR_Creature_Sprite_Drifter_{v}_ui_L.webp" },
-      { name: "Striker", key: "Striker", base: "T_Icon_BR_Creature_Sprite_Soccer_ui_L.webp", pattern: "T_Icon_BR_Creature_Sprite_Soccer_{v}_L.webp" },
+      { name: "Striker", key: "Striker", base: "T_Icon_BR_Creature_Sprite_Soccer_ui_L.webp", pattern: "T_Icon_BR_Creature_Sprite_Soccer_{v}_L.webp", variants: ["Base", "Gold", "Gummy", "Galaxy", "Holofoil"] },
       { name: "Fishy", key: "Fishy", base: "T_Icon_BR_Creature_Sprite_Fishy_ui_L.webp", pattern: "T_Icon_BR_Creature_Sprite_Fishy_{v}_ui_L.webp" },
       { name: "Burnt Peanut", key: "Burnt Peanut", base: "T_Icon_BR_Creature_Sprite_BurntPeanut_ui_L.webp", variants: ["Base"] },
-      { name: "King", key: "King", base: "T_Icon_BR_Creature_Sprite_King_ui_L.webp", pattern: "T_Icon_BR_Creature_Sprite_King_{v}_ui_L.webp" },
+      { name: "King", key: "King", base: "T_Icon_BR_Creature_Sprite_King_ui_L.webp", pattern: "T_Icon_BR_Creature_Sprite_King_{v}_ui_L.webp", variants: ["Base", "Gold", "Gummy", "Galaxy", "Holofoil"] },
       { name: "Punk", key: "Punk", base: "T_Icon_BR_Creature_Sprite_Punk_ui_L.webp", pattern: "T_Icon_BR_Creature_Sprite_Punk_{v}_ui_L.webp" },
       { name: "Demon", key: "Demon", base: "T_Icon_BR_RedDemon_Default_L.webp", pattern: "T_Icon_BR_RedDemon_{v}_L.webp" },
       { name: "Dream", key: "Dream", base: "T_Icon_BR_Creature_Sprite_Sleepy_ui_L.webp", pattern: "T_Icon_BR_Creature_Sprite_Sleepy_{v}_ui_L.webp" },
-      { name: "Ghost", key: "Ghost", base: "T_Icon_BR_Creature_Sprite_Ghost_Unvault_L.webp", pattern: "T_Icon_BR_Creature_Sprite_Ghost_{v}_L.webp" },
+      { name: "Ghost", key: "Ghost", base: "T_Icon_BR_Creature_Sprite_Ghost_Unvault_L.webp", pattern: "T_Icon_BR_Creature_Sprite_Ghost_{v}_L.webp", variants: ["Base", "Gold", "Gummy", "Galaxy", "Holofoil"], files: { Holofoil: "T_Icon_BR_Creature_Sprite_Ghost_Holo_L.webp" } },
       { name: "Duck", key: "Duck", base: "T_Icon_BR_Duck_Default_L.webp", pattern: "T_Icon_BR_Duck_{v}_L.webp" },
-      { name: "Fire", key: "Fire", base: "T_Icon_BR_Creature_Sprite_Fire_Unvault_Ch7S3_ui_L.webp", pattern: "T_Icon_BR_Creature_Sprite_Fire_{v}_ui_L.webp" },
+      { name: "Fire", key: "Fire", base: "T_Icon_BR_Creature_Sprite_Fire_Unvault_Ch7S3_ui_L.webp", pattern: "T_Icon_BR_Creature_Sprite_Fire_{v}_ui_L.webp", variants: ["Base", "Gold", "Gummy", "Galaxy", "Holofoil"] },
       { name: "Earth", key: "Earth", base: "T_Icon_BR_Creature_Sprite_Earth_Ch7S3_UI_L.webp", pattern: "T_Icon_BR_Creature_Sprite_Earth_{v}_ui_L.webp" },
-      { name: "Water", key: "Water", base: "T_Icon_BR_Creature_Sprite_Water_Unvault_Ch7S3_ui_L.webp", pattern: "T_Icon_BR_Creature_Sprite_Water_{v}_ui_L.webp" }
+      { name: "Water", key: "Water", base: "T_Icon_BR_Creature_Sprite_Water_Unvault_Ch7S3_ui_L.webp", pattern: "T_Icon_BR_Creature_Sprite_Water_{v}_ui_L.webp", variants: ["Base", "Gold", "Gummy", "Galaxy", "Holofoil"] }
     ];
 
     const DEFAULT_VARIANTS = ["Base", "Gold", "Gummy", "Galaxy"];
@@ -1204,7 +1204,7 @@
       const variants = sprite.variants || DEFAULT_VARIANTS;
       return variants.map(variant => {
         const fullName = variant === "Base" ? sprite.name : `${variant} ${sprite.name}`;
-        const file = variant === "Base" ? sprite.base : sprite.pattern.replace("{v}", variantFileName(variant));
+        const file = variant === "Base" ? sprite.base : ((sprite.files && sprite.files[variant]) || sprite.pattern.replace("{v}", variantFileName(variant)));
         return {
           id: slug(fullName),
           sprite: sprite.name,
