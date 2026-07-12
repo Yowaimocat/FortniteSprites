@@ -78,66 +78,63 @@
     header {
       max-width: 1180px;
       margin: 0 auto;
-      padding: 28px 18px 8px;
+      padding: 16px 18px 0;
       position: relative;
     }
 
     .hero {
-      min-height: clamp(260px, 30vw, 390px);
-      border: 1px solid rgba(0,217,255,.28);
-      border-radius: 34px;
-      background:
-        radial-gradient(circle at 76% 46%, rgba(0,217,255,.20), transparent 16rem),
-        radial-gradient(circle at 10% 100%, rgba(0,217,255,.12), transparent 18rem),
-        linear-gradient(135deg, rgba(13,27,61,.76), rgba(11,14,23,.92));
-      box-shadow: var(--shadow), inset 0 0 36px rgba(0,217,255,.06);
-      padding: clamp(24px, 5vw, 58px);
+      min-height: 0;
+      padding: clamp(18px, 5vw, 42px) 12px clamp(12px, 3.2vw, 26px);
       position: relative;
-      overflow: hidden;
+      overflow: visible;
       isolation: isolate;
+      text-align: center;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
     }
 
     .hero::before {
       content: "";
       position: absolute;
-      inset: auto -8% -18% -10%;
-      height: 160px;
-      background: linear-gradient(90deg, transparent, rgba(0,217,255,.24), transparent);
-      transform: rotate(-6deg);
-      filter: blur(10px);
-      z-index: -1;
+      left: 50%;
+      top: 54%;
+      width: min(92vw, 740px);
+      height: clamp(130px, 22vw, 240px);
+      background:
+        radial-gradient(circle at 50% 50%, rgba(0,217,255,.22), transparent 58%),
+        linear-gradient(90deg, transparent, rgba(0,217,255,.10), transparent);
+      transform: translate(-50%, -50%);
+      filter: blur(12px);
+      z-index: -2;
+      pointer-events: none;
     }
 
     .hero::after {
       content: "";
       position: absolute;
       left: 50%;
-      top: 46%;
-      width: clamp(180px, 28vw, 340px);
+      top: 52%;
+      width: clamp(150px, 26vw, 260px);
       aspect-ratio: 1;
       background: var(--mini-cat) center / contain no-repeat;
-      opacity: .06;
-      filter: saturate(2.6) drop-shadow(0 0 46px rgba(0,217,255,.34));
+      opacity: .16;
+      filter: saturate(2.6) drop-shadow(0 0 42px rgba(0,217,255,.38));
       transform: translate(-50%, -50%);
       z-index: 0;
       pointer-events: none;
     }
 
     .hero-brand-img {
-      width: clamp(58px, 11.2vw, 106px);
-      aspect-ratio: 1;
-      margin: clamp(-14px, -1.2vw, -6px) auto 0;
-      background: var(--mini-cat) center / contain no-repeat;
-      filter: saturate(2.6) drop-shadow(0 0 30px rgba(0,217,255,.32));
-      opacity: .94;
-      position: relative;
-      z-index: 3;
+      display: none;
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
-      width: min(100%, 900px);
+      width: min(100%, 940px);
+      margin: 0 auto;
     }
 
     .hero-kicker {
@@ -153,29 +150,35 @@
     h1 {
       margin: 0;
       text-transform: uppercase;
-      line-height: .88;
+      line-height: .9;
       letter-spacing: .025em;
     }
 
     .title-main {
       display: block;
-      color: var(--accent);
-      font-size: clamp(3.25rem, 9vw, 7.15rem);
+      color: var(--white);
+      font-size: clamp(1.8rem, 6.6vw, 5.05rem);
       font-weight: 900;
+      letter-spacing: -.035em;
+      white-space: nowrap;
       text-shadow:
-        0 0 10px rgba(0,217,255,.9),
-        0 0 34px rgba(0,217,255,.66),
-        0 0 78px rgba(0,217,255,.34);
+        0 0 10px rgba(255,255,255,.24),
+        0 0 30px rgba(0,217,255,.22);
     }
 
     .title-sub {
       display: block;
-      margin-top: .14em;
-      color: var(--white);
-      font-size: clamp(2.15rem, 6.5vw, 5.45rem);
+      margin-top: .42em;
+      color: var(--accent);
+      font-size: clamp(.72rem, 2.3vw, 1.25rem);
       font-weight: 900;
-      line-height: .86;
-      text-shadow: 0 0 22px rgba(255,255,255,.16);
+      line-height: 1;
+      letter-spacing: .18em;
+      white-space: nowrap;
+      text-shadow:
+        0 0 10px rgba(0,217,255,.92),
+        0 0 30px rgba(0,217,255,.56),
+        0 0 60px rgba(0,217,255,.24);
     }
 
     .hero-cta {
@@ -282,7 +285,7 @@
       display: grid;
       grid-template-columns: 1fr;
       width: min(100%, 760px);
-      margin: 0 auto 18px;
+      margin: 0 auto 16px;
     }
 
     .action-row button,
@@ -339,11 +342,11 @@
 
     .button-link.sprite-cta,
     button.sprite-cta {
-      border-color: rgba(0,217,255,.92);
-      color: #03130B;
-      background: linear-gradient(135deg, #00A6FF 0%, #00D9FF 52%, #2EFF8A 100%);
-      text-shadow: 0 1px 0 rgba(255,255,255,.32);
-      box-shadow: 0 0 30px rgba(0,217,255,.24), inset 0 0 16px rgba(255,255,255,.16);
+      border-color: rgba(181, 94, 255, .95);
+      color: var(--white);
+      background: linear-gradient(135deg, #B66CFF 0%, #9146FF 52%, #5C1FD1 100%);
+      text-shadow: 0 1px 0 rgba(0,0,0,.26);
+      box-shadow: 0 0 30px rgba(145,70,255,.34), inset 0 0 16px rgba(255,255,255,.14);
     }
 
     .bulk-pill {
@@ -381,7 +384,7 @@
     main {
       max-width: 1180px;
       margin: 0 auto;
-      padding: 10px 18px 54px;
+      padding: 6px 18px 54px;
     }
 
     .status-grid {
@@ -726,14 +729,17 @@
       flex: 1 1 0;
       min-width: 0;
       padding-inline: 10px;
-      border-color: rgba(145,70,255,.55);
-      background: rgba(145,70,255,.12);
+      border-color: rgba(0,217,255,.48);
+      background: linear-gradient(135deg, rgba(0,217,255,.10), rgba(13,27,61,.38));
+      box-shadow: inset 0 0 14px rgba(0,217,255,.08);
     }
 
     .ss-chip.active {
-      border-color: rgba(145,70,255,.96);
-      background: linear-gradient(135deg, #9146FF, #6125D8 68%, #4B18B9);
-      box-shadow: 0 0 22px rgba(145,70,255,.3);
+      border-color: rgba(0,217,255,.96);
+      background: linear-gradient(135deg, #00A6FF 0%, #00D9FF 58%, #0D74FF 100%);
+      color: #03111A;
+      text-shadow: 0 1px 0 rgba(255,255,255,.28);
+      box-shadow: 0 0 22px rgba(0,217,255,.30), inset 0 0 14px rgba(255,255,255,.18);
     }
 
     .ss-cards {
@@ -857,8 +863,10 @@
     .ss-card h3 {
       margin: 4px 0 12px;
       color: var(--white);
-      font-size: clamp(1.35rem, 4.8vw, 2.15rem);
-      line-height: .9;
+      font-size: clamp(1.25rem, 4.1vw, 2.05rem);
+      line-height: .92;
+      letter-spacing: -.035em;
+      white-space: nowrap;
       text-transform: uppercase;
       text-shadow: 0 0 22px rgba(255,255,255,.14);
     }
@@ -1051,37 +1059,41 @@
     }
 
     @media (max-width: 860px) {
-      header { padding-top: 16px; }
+      header { padding-top: 10px; }
       .hero {
         min-height: 0;
-        padding: 30px 18px 30px;
+        padding: 18px 8px 16px;
         text-align: center;
-        overflow: hidden;
+        overflow: visible;
       }
       .hero-content {
         width: 100%;
         padding-right: 0;
       }
+      .hero::before {
+        top: 56%;
+        height: 150px;
+      }
       .hero::after {
         left: 50%;
-        top: 43%;
-        width: clamp(168px, 43.2vw, 248px);
-        opacity: .045;
+        top: 51%;
+        width: clamp(138px, 35vw, 176px);
+        opacity: .18;
         transform: translate(-50%, -50%);
       }
       .hero-brand-img {
-        width: clamp(54px, 17.6vw, 86px);
-        margin-top: -8px;
+        display: none;
       }
       .title-main {
-        font-size: clamp(2.12rem, 8.35vw, 3.36rem);
-        letter-spacing: -.03em;
+        font-size: clamp(1.52rem, 6.15vw, 2.35rem);
+        letter-spacing: -.045em;
         white-space: nowrap;
       }
       .title-sub {
-        font-size: clamp(2rem, 9.4vw, 3.65rem);
-        line-height: .9;
-        letter-spacing: .015em;
+        margin-top: .48em;
+        font-size: clamp(.62rem, 2.55vw, .86rem);
+        line-height: 1;
+        letter-spacing: .16em;
       }
       .hero-cta { width: 100%; max-width: 360px; }
       .status-grid { grid-template-columns: 1fr; }
@@ -1112,6 +1124,7 @@
         display: flex;
         flex-direction: column;
       }
+      .ss-card h3 { font-size: clamp(1.02rem, 5.35vw, 1.55rem); letter-spacing: -.045em; }
       .ss-cards { gap: 12px; margin-inline: -1px; padding-bottom: 12px; }
       .ss-modes { justify-content: flex-start; }
       .ss-brand-lock { max-width: 100%; }
@@ -1135,14 +1148,12 @@
 </head>
 <body>
   <header>
-    <section class="hero" aria-label="Yowaimocat Sprite Checklist">
+    <section class="hero" aria-label="Fortnite Sprite Tracker by YOWAIMOCAT">
       <div class="hero-content">
-        <p class="hero-kicker">Fortnite Sprite Tracker</p>
         <h1>
-          <span class="title-main">YOWAIMOCAT</span>
-          <span class="title-sub">SPRITE<br>CHECKLIST</span>
+          <span class="title-main">FORTNITE SPRITE TRACKER</span>
+          <span class="title-sub">by YOWAIMOCAT</span>
         </h1>
-        <div class="hero-brand-img" aria-hidden="true"></div>
       </div>
     </section>
   </header>
@@ -1150,8 +1161,8 @@
 
   <main>
     <section class="action-row" aria-label="Share and sprite actions">
-      <button id="copyShare" type="button" class="primary">Tired of messy trading pictures? Share!</button>
-      <a class="button-link sprite-cta" href="https://www.twitch.tv/yowaimocat" target="_blank" rel="noopener">Get a free sprite! LIVE @ Store refresh</a>
+      <a class="button-link sprite-cta" href="https://www.twitch.tv/yowaimocat" target="_blank" rel="noopener">GET A FREE SPRITE</a>
+      <button id="copyShare" type="button" class="primary">SHARE LINK</button>
     </section>
     <section id="ssBuilder" class="ss-builder" aria-label="Create a Fortnite Sprite trading screenshot">
       <div class="ss-builder-head">
@@ -1378,7 +1389,7 @@
             <div></div>
             <div class="ss-page">${index + 1}/${pages.length}</div>
           </div>
-          <h3>Missing<br>Fortnite Sprites</h3>
+          <h3>Missing Fortnite Sprites</h3>
           <div class="ss-modes">${tagHtml}${brandChipHtml}</div>
           <div class="ss-grid">
             ${page.map(item => `
