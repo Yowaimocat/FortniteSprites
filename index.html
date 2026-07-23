@@ -957,7 +957,43 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 9px;
+      transition: all .18s ease;
     }
+
+    .ss-card.ss-count-1 .ss-grid { grid-template-columns: minmax(0, .72fr); justify-content: center; }
+    .ss-card.ss-count-2 .ss-grid { grid-template-columns: repeat(2, minmax(0, .45fr)); justify-content: center; }
+    .ss-card.ss-count-3 .ss-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .ss-card.ss-count-4 .ss-grid,
+    .ss-card.ss-count-5 .ss-grid,
+    .ss-card.ss-count-6 .ss-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .ss-card.ss-count-1 .ss-item { min-height: 250px; }
+    .ss-card.ss-count-2 .ss-item { min-height: 230px; }
+    .ss-card.ss-count-3 .ss-item { min-height: 210px; }
+    .ss-card.ss-count-4 .ss-item,
+    .ss-card.ss-count-5 .ss-item,
+    .ss-card.ss-count-6 .ss-item { min-height: 176px; }
+
+    .ss-card.ss-count-1 .ss-item img, .ss-card.ss-count-1 .ss-fallback { width: 132px; height: 132px; }
+    .ss-card.ss-count-2 .ss-item img, .ss-card.ss-count-2 .ss-fallback { width: 118px; height: 118px; }
+    .ss-card.ss-count-3 .ss-item img, .ss-card.ss-count-3 .ss-fallback { width: 106px; height: 106px; }
+    .ss-card.ss-count-4 .ss-item img, .ss-card.ss-count-4 .ss-fallback,
+    .ss-card.ss-count-5 .ss-item img, .ss-card.ss-count-5 .ss-fallback,
+    .ss-card.ss-count-6 .ss-item img, .ss-card.ss-count-6 .ss-fallback { width: 96px; height: 96px; }
+
+    .ss-card.ss-count-1 .ss-name,
+    .ss-card.ss-count-2 .ss-name { font-size: .82rem; }
+    .ss-card.ss-count-3 .ss-name,
+    .ss-card.ss-count-4 .ss-name,
+    .ss-card.ss-count-5 .ss-name,
+    .ss-card.ss-count-6 .ss-name { font-size: .74rem; }
+
+    .ss-card.ss-count-1 .ss-missing,
+    .ss-card.ss-count-2 .ss-missing { font-size: .68rem; }
+    .ss-card.ss-count-3 .ss-missing,
+    .ss-card.ss-count-4 .ss-missing,
+    .ss-card.ss-count-5 .ss-missing,
+    .ss-card.ss-count-6 .ss-missing { font-size: .62rem; }
 
     .ss-item {
       min-width: 0;
@@ -1204,6 +1240,30 @@
       }
       .ss-item img,
       .ss-fallback { width: 68px; height: 68px; }
+      .ss-card.ss-count-1 .ss-grid { grid-template-columns: minmax(0, .82fr); }
+      .ss-card.ss-count-2 .ss-grid { grid-template-columns: repeat(2, minmax(0, .48fr)); }
+      .ss-card.ss-count-3 .ss-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ss-card.ss-count-4 .ss-grid,
+      .ss-card.ss-count-5 .ss-grid,
+      .ss-card.ss-count-6 .ss-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .ss-card.ss-count-1 .ss-item { min-height: 260px; }
+      .ss-card.ss-count-2 .ss-item { min-height: 225px; }
+      .ss-card.ss-count-3 .ss-item { min-height: 205px; }
+      .ss-card.ss-count-4 .ss-item,
+      .ss-card.ss-count-5 .ss-item,
+      .ss-card.ss-count-6 .ss-item { min-height: 160px; }
+      .ss-card.ss-count-1 .ss-item img, .ss-card.ss-count-1 .ss-fallback { width: 142px; height: 142px; }
+      .ss-card.ss-count-2 .ss-item img, .ss-card.ss-count-2 .ss-fallback { width: 112px; height: 112px; }
+      .ss-card.ss-count-3 .ss-item img, .ss-card.ss-count-3 .ss-fallback { width: 92px; height: 92px; }
+      .ss-card.ss-count-4 .ss-item img, .ss-card.ss-count-4 .ss-fallback,
+      .ss-card.ss-count-5 .ss-item img, .ss-card.ss-count-5 .ss-fallback,
+      .ss-card.ss-count-6 .ss-item img, .ss-card.ss-count-6 .ss-fallback { width: 82px; height: 82px; }
+      .ss-card.ss-count-1 .ss-name,
+      .ss-card.ss-count-2 .ss-name { font-size: .86rem; }
+      .ss-card.ss-count-3 .ss-name,
+      .ss-card.ss-count-4 .ss-name,
+      .ss-card.ss-count-5 .ss-name,
+      .ss-card.ss-count-6 .ss-name { font-size: .76rem; }
       .modal-actions { flex-direction: column; }
     }
   </style>
@@ -1457,7 +1517,7 @@
 
       const pages = chunk(missingItems, 9);
       els.ssCards.innerHTML = pages.map((page, index) => `
-        <article class="ss-card" aria-label="Missing Fortnite Sprites screenshot card ${index + 1} of ${pages.length}">
+        <article class="ss-card ss-count-${page.length}" aria-label="Missing Fortnite Sprites screenshot card ${index + 1} of ${pages.length}">
           <div class="ss-card-top">
             <h2 class="ss-card-title">Clear <span>Trading SS</span> <small>(Screenshot)</small></h2>
             <div class="ss-page">${index + 1}/${pages.length}</div>
