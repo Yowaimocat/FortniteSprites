@@ -7,7 +7,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <title>YOWAIMOCAT Fortnite Sprite Trading</title>
-  <meta name="description" content="YOWAIMOCAT Fortnite Sprite Trading: track all 153 Fortnite Sprites from Fortnite.GG, including Cube variants, Pollo, Jackrabbit, Shadow, Bush, Tails, Llama, Peeky Peely, missing sprites, and clean trading screenshots." />
+  <meta name="description" content="YOWAIMOCAT Fortnite Sprite Trading: track all 164 Fortnite Sprites from Fortnite.GG, including Cube variants, Pollo, Jackrabbit, Shadow, Bush, Tails, Llama, Peeky Peely, missing sprites, and clean trading screenshots." />
   <meta name="keywords" content="fortnite sprite, fortnite sprites, fortnite sprite checklist, fortnite sprite tracker, yowaimocat, yowaimocat sprites, missing fortnite sprites, fortnite sprite trading, fortnite sprite index, cube sprite, pollo sprite, jackrabbit sprite, llama sprite, peeky peely sprite" />
   <meta property="og:title" content="YOWAIMOCAT Fortnite Sprite Trading" />
   <meta property="og:description" content="Track Fortnite Sprites and create clean missing sprite trading screenshots by YOWAIMOCAT." />
@@ -1299,8 +1299,8 @@
     <h2 class="summary-title">Sprite <span>Summary</span></h2>
     <section class="status-grid stats-bottom" aria-label="Stats">
       <div class="stat"><strong id="ownedCount">0</strong><span>Have</span></div>
-      <div class="stat"><strong id="missingCount">153</strong><span>Missing</span></div>
-      <div class="stat"><strong id="totalCount">153</strong><span>Total sprites</span></div>
+      <div class="stat"><strong id="missingCount">164</strong><span>Missing</span></div>
+      <div class="stat"><strong id="totalCount">164</strong><span>Total sprites</span></div>
     </section>
   </main>
 
@@ -1339,9 +1339,54 @@
                     "variants": [
                               "Base",
                               "Cheat Master",
+                              "Gold",
+                              "Loot Hacker"
+                    ],
+                    "files": {
+                              "Loot Hacker": "T_Icon_BR_Creature_Sprite_Crown_Hacker_L.webp"
+                    },
+                    "pattern": "T_Icon_BR_Creature_Sprite_Crown_{v}_L.webp"
+          },
+          {
+                    "name": "Mega Man",
+                    "key": "Mega Man",
+                    "base": "T_Icon_BR_Creature_Sprite_ImprovedSlide_L.webp",
+                    "variants": [
+                              "Base"
+                    ]
+          },
+          {
+                    "name": "X-Ray",
+                    "key": "X-Ray",
+                    "base": "T_Icon_BR_Creature_Sprite_WinnerB_L.webp",
+                    "variants": [
+                              "Base",
+                              "Cheat Master",
                               "Gold"
                     ],
-                    "pattern": "T_Icon_BR_Creature_Sprite_Crown_{v}_L.webp"
+                    "pattern": "T_Icon_BR_Creature_Sprite_WinnerB_{v}_L.webp"
+          },
+          {
+                    "name": "Onigiri",
+                    "key": "Onigiri",
+                    "base": "T_Icon_BR_Creature_Sprite_WinnerC_L.webp",
+                    "variants": [
+                              "Base",
+                              "Cheat Master",
+                              "Gold"
+                    ],
+                    "pattern": "T_Icon_BR_Creature_Sprite_WinnerC_{v}_L.webp"
+          },
+          {
+                    "name": "Overshield",
+                    "key": "Overshield",
+                    "base": "T_Icon_BR_Creature_Sprite_Overshield_L.webp",
+                    "variants": [
+                              "Base",
+                              "Cheat Master",
+                              "Gold"
+                    ],
+                    "pattern": "T_Icon_BR_Creature_Sprite_Overshield_{v}_L.webp"
           },
           {
                     "name": "Jackrabbit",
@@ -1837,14 +1882,15 @@
       return { present: true, missing };
     }
 
-    const STORAGE_KEY = "sprite-owned-klombo-crown-default-v4-153";
+    const STORAGE_KEY = "sprite-owned-klombo-crown-default-v5-164";
     const DEFAULT_SS_MISSING_IDS = new Set([
       "klombo",
       "cheat-master-klombo",
       "gold-klombo",
       "crown",
       "cheat-master-crown",
-      "gold-crown"
+      "gold-crown",
+      "loot-hacker-crown"
     ]);
 
     function defaultOwnedForTradingSS() {
